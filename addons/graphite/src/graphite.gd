@@ -63,9 +63,384 @@ static func yesterday(timezone_dict: Dictionary = {}) -> Graphite:
 func add(amount: int, unit: String = "seconds") -> Graphite:
 	return GraphiteMath.add(self, amount, unit)
 
+## Subtracts the specified [param amount] of time from the Graphite instance.
+## Requires a [param unit] of measurement, such as [code]seconds[/code], [code]minutes[/code],
+## or [code]hours[/code]. Defaults to [i]seconds[/i].
+## [br] The [param unit] is plural.
+## [br] Returns Graphite
+func sub(amount: int, unit: String = "seconds") -> Graphite:
+	return GraphiteMath.sub(self, amount, unit)
+
+### Creation ###
+
+## Get a copy of the instance.
+## [br] Returns Graphite
+func copy() -> Graphite:
+	return GraphiteManipulation.copy(self)
+
+## Get a copy of the instance.
+## [br] Returns Graphite
+func clone() -> Graphite:
+	return GraphiteManipulation.clone(self)
+
+### Manipulation ###
+
+## Resets the current time of the DateTime object to a different time.
+## [br] Returns Graphite
+func setTime(hour: int, minute: int, second: int = 0, microseconds: int = 0) -> Graphite:
+	return GraphiteManipulation.setTime(self, hour, minute, second, microseconds)
+
+## Set the date with gregorian year, month and day numbers.
+## [br] Returns Graphite
+func setDate(year: int, month: int, day: int) -> Graphite:
+	return GraphiteManipulation.setDate(self, year, month, day)
+
+## Set the instance's timestamp.
+## [br] Returns Graphite
+func setTimestamp(timestamp) -> Graphite:
+	return GraphiteManipulation.setTimestamp(self, timestamp)
+
+## Set the instance's timezone from a string or object.
+## [br] Returns Graphite
+func setTimezone(timeZone) -> Graphite:
+	return GraphiteManipulation.setTimezone(self, timeZone)
+
+## Set the instance's timezone to UTC.
+## [br] Returns Graphite
+func utc() -> Graphite:
+	return GraphiteManipulation.utc(self)
+
+## Set the year, month, and date for this instance to that of the passed instance.
+## [br] Returns Graphite
+func setDateFrom(date) -> Graphite:
+	return GraphiteManipulation.setDateFrom(self, date)
+
+## Set the hour, minute, second and microseconds for this instance to that of the passed instance.
+## [br] Returns Graphite
+func setTimeFrom(date) -> Graphite:
+	return GraphiteManipulation.setTimeFrom(self, date)
+
+## Set the date and time for this instance to that of the passed instance.
+## [br] Returns Graphite
+func setDateTimeFrom(date) -> Graphite:
+	return GraphiteManipulation.setDateTimeFrom(self, date)
+
+## Set specified unit to new given value.
+## [br] Returns Graphite
+func setUnit(unit: String, value) -> Graphite:
+	return GraphiteManipulation.setUnit(self, unit, value)
+
+### Formatting ###
+
+## Returns the formatted date string.
+## [br] Returns String
+func format(format_string: String) -> String:
+	return GraphiteFormatting.format(self, format_string)
+
+## Format the instance as a datetime string.
+## [br] Returns String
+func toDateTimeString() -> String:
+	return GraphiteFormatting.toDateTimeString(self)
+
+## Format the instance as a date string.
+## [br] Returns String
+func toDateString() -> String:
+	return GraphiteFormatting.toDateString(self)
+
+## Format the instance as a time string.
+## [br] Returns String
+func toTimeString() -> String:
+	return GraphiteFormatting.toTimeString(self)
+
+## Format the instance as a readable date string.
+## [br] Returns String
+func toFormattedDateString() -> String:
+	return GraphiteFormatting.toFormattedDateString(self)
+
+## Format the instance as a readable day, date and time string.
+## [br] Returns String
+func toDayDateTimeString() -> String:
+	return GraphiteFormatting.toDayDateTimeString(self)
+
+## Format the instance as an ATOM string.
+## [br] Returns String
+func toAtomString() -> String:
+	return GraphiteFormatting.toAtomString(self)
+
+## Format the instance as a cookie string.
+## [br] Returns String
+func toCookieString() -> String:
+	return GraphiteFormatting.toCookieString(self)
+
+## Format the instance as an ISO 8601 string.
+## [br] Returns String
+func toIso8601String() -> String:
+	return GraphiteFormatting.toIso8601String(self)
+
+## Format the instance as an ISO 8601 string in UTC timezone.
+## [br] Returns String
+func toIso8601ZuluString() -> String:
+	return GraphiteFormatting.toIso8601ZuluString(self)
+
+## Format the instance as an RFC 822 string.
+## [br] Returns String
+func toRfc822String() -> String:
+	return GraphiteFormatting.toRfc822String(self)
+
+## Format the instance as an RFC 850 string.
+## [br] Returns String
+func toRfc850String() -> String:
+	return GraphiteFormatting.toRfc850String(self)
+
+## Format the instance as an RFC 1036 string.
+## [br] Returns String
+func toRfc1036String() -> String:
+	return GraphiteFormatting.toRfc1036String(self)
+
+## Format the instance as an RFC 1123 string.
+## [br] Returns String
+func toRfc1123String() -> String:
+	return GraphiteFormatting.toRfc1123String(self)
+
+## Format the instance as an RFC 2822 string.
+## [br] Returns String
+func toRfc2822String() -> String:
+	return GraphiteFormatting.toRfc2822String(self)
+
+## Format the instance as an RFC 3339 string.
+## [br] Returns String
+func toRfc3339String() -> String:
+	return GraphiteFormatting.toRfc3339String(self)
+
+## Format the instance as an RSS string.
+## [br] Returns String
+func toRssString() -> String:
+	return GraphiteFormatting.toRssString(self)
+
+## Format the instance as a W3C string.
+## [br] Returns String
+func toW3cString() -> String:
+	return GraphiteFormatting.toW3cString(self)
+
+### Modifiers ###
+
+## Resets the time to 00:00:00 start of day.
+## [br] Returns Graphite
+func startOfDay() -> Graphite:
+	return GraphiteModifiers.startOfDay(self)
+
+## Resets the time to 23:59:59.999999 end of day.
+## [br] Returns Graphite
+func endOfDay() -> Graphite:
+	return GraphiteModifiers.endOfDay(self)
+
+## Resets the date to the first day of the month and the time to 00:00:00.
+## [br] Returns Graphite
+func startOfMonth() -> Graphite:
+	return GraphiteModifiers.startOfMonth(self)
+
+## Resets the date to end of the month and time to 23:59:59.999999.
+## [br] Returns Graphite
+func endOfMonth() -> Graphite:
+	return GraphiteModifiers.endOfMonth(self)
+
+## Resets the date to the first day of the year and the time to 00:00:00.
+## [br] Returns Graphite
+func startOfYear() -> Graphite:
+	return GraphiteModifiers.startOfYear(self)
+
+## Resets the date to end of the year and time to 23:59:59.999999.
+## [br] Returns Graphite
+func endOfYear() -> Graphite:
+	return GraphiteModifiers.endOfYear(self)
+
+## Resets the date to the first day of week and the time to 00:00:00.
+## [br] Returns Graphite
+func startOfWeek(weekStartsAt: int = 1) -> Graphite:
+	return GraphiteModifiers.startOfWeek(self, weekStartsAt)
+
+## Resets the date to end of week and time to 23:59:59.999999.
+## [br] Returns Graphite
+func endOfWeek(weekEndsAt: int = 0) -> Graphite:
+	return GraphiteModifiers.endOfWeek(self, weekEndsAt)
+
+## Modify to start of current hour, minutes and seconds become 0.
+## [br] Returns Graphite
+func startOfHour() -> Graphite:
+	return GraphiteModifiers.startOfHour(self)
+
+## Modify to end of current hour, minutes and seconds become 59.
+## [br] Returns Graphite
+func endOfHour() -> Graphite:
+	return GraphiteModifiers.endOfHour(self)
+
+## Modify to start of current minute, seconds become 0.
+## [br] Returns Graphite
+func startOfMinute() -> Graphite:
+	return GraphiteModifiers.startOfMinute(self)
+
+## Modify to end of current minute, seconds become 59.
+## [br] Returns Graphite
+func endOfMinute() -> Graphite:
+	return GraphiteModifiers.endOfMinute(self)
+
+## Modify to start of current given unit.
+## [br] Returns Graphite
+func startOf(unit: String, params = null) -> Graphite:
+	return GraphiteModifiers.startOf(self, unit, params)
+
+## Modify to end of current given unit.
+## [br] Returns Graphite
+func endOf(unit: String, params = null) -> Graphite:
+	return GraphiteModifiers.endOf(self, unit, params)
+
+### Queries ###
+
+## Determines if the instance is a weekday.
+## [br] Returns bool
+func isWeekday() -> bool:
+	return GraphiteQueries.isWeekday(self)
+
+## Determines if the instance is a weekend day.
+## [br] Returns bool
+func isWeekend() -> bool:
+	return GraphiteQueries.isWeekend(self)
+
+## Determines if the instance is yesterday.
+## [br] Returns bool
+func isYesterday() -> bool:
+	return GraphiteQueries.isYesterday(self)
+
+## Determines if the instance is today.
+## [br] Returns bool
+func isToday() -> bool:
+	return GraphiteQueries.isToday(self)
+
+## Determines if the instance is tomorrow.
+## [br] Returns bool
+func isTomorrow() -> bool:
+	return GraphiteQueries.isTomorrow(self)
+
+## Determines if the instance is in the future, ie. greater (after) than now.
+## [br] Returns bool
+func isFuture() -> bool:
+	return GraphiteQueries.isFuture(self)
+
+## Determines if the instance is in the past, ie. less (before) than now.
+## [br] Returns bool
+func isPast() -> bool:
+	return GraphiteQueries.isPast(self)
+
+## Determines if the instance is a leap year.
+## [br] Returns bool
+func isLeapYear() -> bool:
+	return GraphiteQueries.isLeapYear(self)
+
+## Checks if the passed in date is in the same month as the instance´s month.
+## [br] Returns bool
+func isSameMonth(date, ofSameYear: bool = true) -> bool:
+	return GraphiteQueries.isSameMonth(self, date, ofSameYear)
+
+## Checks if this day is a specific day of the week.
+## [br] Returns bool
+func isDayOfWeek(dayOfWeek) -> bool:
+	return GraphiteQueries.isDayOfWeek(self, dayOfWeek)
+
+## Check if its the birthday. Compares the date/month values of the two dates.
+## [br] Returns bool
+func isBirthday(date = null) -> bool:
+	return GraphiteQueries.isBirthday(self, date)
+
+## Check if today is the last day of the Month.
+## [br] Returns bool
+func isLastOfMonth() -> bool:
+	return GraphiteQueries.isLastOfMonth(self)
+
+## Check if the instance is start of day / midnight.
+## [br] Returns bool
+func isStartOfDay(checkMicroseconds: bool = false) -> bool:
+	return GraphiteQueries.isStartOfDay(self, checkMicroseconds)
+
+## Check if the instance is end of day.
+## [br] Returns bool
+func isEndOfDay(checkMicroseconds: bool = false) -> bool:
+	return GraphiteQueries.isEndOfDay(self, checkMicroseconds)
+
 ### Public accessors ###
 
-## Returns a 
+### Comparison ###
+
+## Determines if the instance is equal to another.
+## [br] Returns bool
+func eq(date) -> bool:
+	return GraphiteComparison.eq(self, date)
+
+## Determines if the instance is equal to another.
+## [br] Returns bool
+func equalTo(date) -> bool:
+	return eq(date)
+
+## Determines if the instance is not equal to another.
+## [br] Returns bool
+func ne(date) -> bool:
+	return GraphiteComparison.ne(self, date)
+
+## Determines if the instance is not equal to another.
+## [br] Returns bool
+func notEqualTo(date) -> bool:
+	return ne(date)
+
+## Determines if the instance is greater (after) than another.
+## [br] Returns bool
+func gt(date) -> bool:
+	return GraphiteComparison.gt(self, date)
+
+## Determines if the instance is greater (after) than another.
+## [br] Returns bool
+func greaterThan(date) -> bool:
+	return gt(date)
+
+## Determines if the instance is greater (after) than another.
+## [br] Returns bool
+func isAfter(date) -> bool:
+	return gt(date)
+
+## Determines if the instance is greater (after) than or equal to another.
+## [br] Returns bool
+func gte(date) -> bool:
+	return GraphiteComparison.gte(self, date)
+
+## Determines if the instance is greater (after) than or equal to another.
+## [br] Returns bool
+func greaterThanOrEqualTo(date) -> bool:
+	return gte(date)
+
+## Determines if the instance is less (before) than another.
+## [br] Returns bool
+func lt(date) -> bool:
+	return GraphiteComparison.lt(self, date)
+
+## Determines if the instance is less (before) than another.
+## [br] Returns bool
+func lessThan(date) -> bool:
+	return lt(date)
+
+## Determines if the instance is less (before) than another.
+## [br] Returns bool
+func isBefore(date) -> bool:
+	return lt(date)
+
+## Determines if the instance is less (before) than or equal to another.
+## [br] Returns bool
+func lte(date) -> bool:
+	return GraphiteComparison.lte(self, date)
+
+## Determines if the instance is less (before) than or equal to another.
+## [br] Returns bool
+func lessThanOrEqualTo(date) -> bool:
+	return lte(date)
+
+## Returns a string representation of the datetime in YYYY-MM-DD HH:MM:SS format.
 func toString() -> String:
 	return "%04d-%02d-%02d %02d:%02d:%02d" % [
 		_datetime.year, _datetime.month, _datetime.day,
@@ -81,3 +456,11 @@ func get_datetime() -> Dictionary:
 ## Sets the datetime dictionary.
 func set_datetime(datetime_dict: Dictionary) -> void:
 	_datetime = datetime_dict
+
+## Returns the timezone dictionary.
+func get_timezone() -> Dictionary:
+	return _timezone
+
+## Sets the timezone dictionary.
+func set_timezone(timezone_dict: Dictionary) -> void:
+	_timezone = timezone_dict
