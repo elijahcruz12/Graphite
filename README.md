@@ -23,6 +23,12 @@ Another spectacular thing we're doing is using `RefCounted`, which means that yo
 
 It cannot be understated that this IS a work in progress. Before releasing, I hope to have at least 15% of the original Carbon functionality ready to go.
 
+## Installation
+
+This project is not yet on the Godot Asset Library (Waiting for Approval).
+
+However, you can download the latest release from the release tab!
+
 ## Contributing
 If you wish to contribute, you may send a PR or Issue, but PLEASE note I would prefer if you styled the code how I did, as well as make sure that any contributions bring Graphite closer to parity with Carbon for now.
 
