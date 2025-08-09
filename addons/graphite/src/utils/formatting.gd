@@ -1,5 +1,5 @@
-extends RefCounted
 class_name GraphiteFormatting
+extends RefCounted
 
 ### Format Functions ###
 

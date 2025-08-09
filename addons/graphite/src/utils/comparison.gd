@@ -1,5 +1,5 @@
-extends RefCounted
 class_name GraphiteComparison
+extends RefCounted
 
 ## This function should [b]NOT[/b] be used directly. Instead please use the [code]Graphite[/code] class.
 static func eq(graphite: Graphite, date) -> bool:
@@ -13,9 +13,11 @@ static func eq(graphite: Graphite, date) -> bool:
 		return false
 	return unix_time == other_unix_time
 
+
 ## This function should [b]NOT[/b] be used directly. Instead please use the [code]Graphite[/code] class.
 static func ne(graphite: Graphite, date) -> bool:
 	return !eq(graphite, date)
+
 
 ## This function should [b]NOT[/b] be used directly. Instead please use the [code]Graphite[/code] class.
 static func gt(graphite: Graphite, date) -> bool:
@@ -29,6 +31,7 @@ static func gt(graphite: Graphite, date) -> bool:
 		return false
 	return unix_time > other_unix_time
 
+
 ## This function should [b]NOT[/b] be used directly. Instead please use the [code]Graphite[/code] class.
 static func gte(graphite: Graphite, date) -> bool:
 	var unix_time = Time.get_unix_time_from_datetime_dict(graphite.get_datetime())
@@ -41,6 +44,7 @@ static func gte(graphite: Graphite, date) -> bool:
 		return false
 	return unix_time >= other_unix_time
 
+
 ## This function should [b]NOT[/b] be used directly. Instead please use the [code]Graphite[/code] class.
 static func lt(graphite: Graphite, date) -> bool:
 	var unix_time = Time.get_unix_time_from_datetime_dict(graphite.get_datetime())
@@ -52,6 +56,7 @@ static func lt(graphite: Graphite, date) -> bool:
 	else:
 		return false
 	return unix_time < other_unix_time
+
 
 ## This function should [b]NOT[/b] be used directly. Instead please use the [code]Graphite[/code] class.
 static func lte(graphite: Graphite, date) -> bool:

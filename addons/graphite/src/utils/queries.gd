@@ -1,5 +1,5 @@
-extends RefCounted
 class_name GraphiteQueries
+extends RefCounted
 
 ### Query Functions ###
 

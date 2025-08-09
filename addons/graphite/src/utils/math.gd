@@ -1,5 +1,5 @@
-extends RefCounted
 class_name GraphiteMath
+extends RefCounted
 
 ## This function should [b]NOT[/b] be used directly. Instead please use the [code]Graphite[/code] class.
 static func add(graphite: Graphite, amount: int, unit: String = "seconds") -> Graphite:

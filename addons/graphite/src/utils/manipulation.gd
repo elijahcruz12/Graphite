@@ -1,5 +1,5 @@
-extends RefCounted
 class_name GraphiteManipulation
+extends RefCounted
 
 ### Manipulation Functions ###
 

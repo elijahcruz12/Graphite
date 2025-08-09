@@ -1,9 +1,10 @@
 class_name Graphite
 extends RefCounted
 
-var _datetime: Dictionary
 
+var _datetime: Dictionary
 var _timezone: Dictionary
+
 
 func _init(datetime_dict: Dictionary = {}, timezone_dict: Dictionary = {}):
 	if datetime_dict.is_empty():
@@ -17,7 +18,8 @@ func _init(datetime_dict: Dictionary = {}, timezone_dict: Dictionary = {}):
 	else:
 		_timezone = timezone_dict
 
-### Static Init
+
+### Static Init ###
 
 ## Allows you to get the current [code]datetime[/code].
 static func now(timezone_dict: Dictionary = {}) -> Graphite:
