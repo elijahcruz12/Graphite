@@ -16,4 +16,4 @@ config/icon="res://assets/icon.svg"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/graphite/plugin.cfg")
+enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg", "res://addons/graphite/plugin.cfg")

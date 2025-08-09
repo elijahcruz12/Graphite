@@ -6,3 +6,6 @@
 /addons    !export-ignore
 /addons/** !export-ignore
 /LICENSE   !export-ignore
+
+# Exclude GDUnit4 from exports (testing framework not needed in production)
+/addons/gdUnit4/** export-ignore

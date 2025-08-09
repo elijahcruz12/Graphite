@@ -1,0 +1,8 @@
+{
+  "testRunner": "gdunit4",
+  "testFiles": [
+    "test/*.gd"
+  ],
+  "reporter": "console",
+  "timeout": 5000
+}
