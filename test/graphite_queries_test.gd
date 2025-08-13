@@ -63,7 +63,6 @@ func test_isYesterday():
 	assert_that(GraphiteQueries.isYesterday(yesterday)).is_true()
 
 func test_isToday():
-	var now = Graphite.now()
 	var today = Graphite.today()
 	
 	assert_that(GraphiteQueries.isToday(today)).is_true()
