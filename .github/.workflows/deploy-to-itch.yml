@@ -1,0 +1,67 @@
+name: Deploy to Itch.io
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  deploy:
+    name: Deploy to Itch.io
+    runs-on: ubuntu-latest
+    
+    # Only run if the release tag contains a version number (e.g., v1.0.0, 1.0.0)
+    if: contains(github.event.release.tag_name, '.')
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Prepare plugin for distribution
+        run: |
+          echo "Creating distribution directory..."
+          mkdir -p dist/addons/graphite
+          
+          echo "Copying plugin files..."
+          cp -r addons/graphite/* dist/addons/graphite/
+          
+          echo "Copying documentation and license..."
+          if [ -f README.md ]; then
+            cp README.md dist/
+          fi
+          if [ -f LICENSE ]; then
+            cp LICENSE dist/
+          fi
+          if [ -d docs ]; then
+            cp -r docs dist/
+          fi
+          
+          echo "Creating version info file..."
+          echo "Version: ${{ github.event.release.tag_name }}" > dist/VERSION.txt
+          echo "Release Date: $(date)" >> dist/VERSION.txt
+          echo "Release URL: ${{ github.event.release.html_url }}" >> dist/VERSION.txt
+          
+          echo "Distribution contents:"
+          find dist -type f
+          
+      - name: Download Butler
+        run: |
+          echo "Downloading Butler..."
+          curl -L -o butler.zip https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default
+          unzip butler.zip
+          chmod +x butler
+          echo "Butler version:"
+          ./butler -V
+          
+      - name: Deploy to Itch.io
+        env:
+          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
+        run: |
+          echo "Deploying to Itch.io..."
+          echo "Release tag: ${{ github.event.release.tag_name }}"
+          echo "Using single channel: main"
+          
+          # Deploy to itch.io using repository variables for username and game name
+          # If you prefer hardcoded values, replace the variables below with your actual itch.io username and game name
+          ./butler push dist/ ${{ vars.ITCH_USERNAME }}/${{ vars.ITCH_GAME_NAME }}:main --userversion ${{ github.event.release.tag_name }}
+          
+          echo "Deployment completed!"
