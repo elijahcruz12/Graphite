@@ -62,6 +62,6 @@ jobs:
           
           # Deploy to itch.io using repository variables for username and game name
           # If you prefer hardcoded values, replace the variables below with your actual itch.io username and game name
-          ./butler push dist/ ${{ vars.ITCH_USERNAME }}/${{ vars.ITCH_GAME_NAME }}:main --userversion ${{ github.event.release.tag_name }}
+          ./butler push dist/ theecgaming/graphite:main --userversion ${{ github.event.release.tag_name }}
           
           echo "Deployment completed!"
