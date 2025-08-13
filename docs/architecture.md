@@ -19,7 +19,7 @@ Graphite follows a modular architecture inspired by Carbon PHP, designed for opt
 
 ### 1. Single Responsibility
 Each utility class handles one specific aspect of datetime operations:
-- **GraphiteMath**: Mathematical operations (add/subtract)
+- **GraphiteMath**: Mathematical operations (add/subtract with comprehensive time unit support)
 - **GraphiteFormatting**: String formatting and output
 - **GraphiteManipulation**: Date/time modification
 - **GraphiteComparison**: Date comparison operations
@@ -37,7 +37,7 @@ Most methods return the Graphite instance itself, enabling method chaining:
 ```gdscript
 var result = Graphite.now()
     .startOfMonth()
-    .add(15, "days")
+    .addDays(15)
     .setTime(14, 30, 0)
     .format("Y-m-d H:i:s")
 ```

@@ -65,19 +65,34 @@ date.utc()  # Shortcut for UTC
 ```gdscript
 var date = Graphite.now()
 
-# Add time
+# Add time using generic functions
 date.add(5, "minutes")    # Add 5 minutes
 date.add(2, "hours")      # Add 2 hours
 date.add(1, "days")       # Add 1 day
 
-# Subtract time
+# Add time using specific functions
+date.addMinutes(5)        # Add 5 minutes
+date.addHours(2)          # Add 2 hours
+date.addDay()             # Add 1 day
+
+# Subtract time using generic functions
 date.sub(30, "seconds")   # Subtract 30 seconds
 date.sub(1, "hours")      # Subtract 1 hour
+
+# Subtract time using specific functions
+date.subSeconds(30)       # Subtract 30 seconds
+date.subHour()            # Subtract 1 hour
+
+# Business days (weekdays only)
+date.addWeekdays(5)       # Add 5 business days (Mon-Fri)
+date.subWeekdays(3)       # Subtract 3 business days
 
 # Copy instances
 var copy1 = date.copy()
 var copy2 = date.clone()  # Same as copy()
 ```
+
+For comprehensive coverage of all addition and subtraction functions, see [Addition and Subtraction](addition-subtraction.md).
 
 ### Formatting Output
 
@@ -197,7 +212,7 @@ One of Graphite's most powerful features is method chaining:
 # Complex chaining example
 var result = Graphite.now()
     .startOfMonth()           # Go to start of current month
-    .add(15, "days")          # Add 15 days
+    .addDays(15)              # Add 15 days
     .setTime(14, 30, 0)       # Set time to 2:30 PM
     .format("l, F j, Y g:i A") # Format as readable string
 
@@ -205,7 +220,7 @@ print(result)  # "Tuesday, August 15, 2025 2:30 PM"
 
 # Another example
 var weekend_check = Graphite.today()
-    .add(2, "days")
+    .addDays(2)
     .isWeekend()
 
 if weekend_check:

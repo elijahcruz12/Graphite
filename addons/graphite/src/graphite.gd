@@ -73,6 +73,304 @@ func add(amount: int, unit: String = "seconds") -> Graphite:
 func sub(amount: int, unit: String = "seconds") -> Graphite:
 	return GraphiteMath.sub(self, amount, unit)
 
+### Addition Functions (Plural) ###
+
+## Adds the specified amount of microseconds to the instance.
+## [br] Returns Graphite
+func addMicroseconds(amount: int) -> Graphite:
+	return GraphiteMath.addMicroseconds(self, amount)
+
+## Adds the specified amount of milliseconds to the instance.
+## [br] Returns Graphite
+func addMilliseconds(amount: int) -> Graphite:
+	return GraphiteMath.addMilliseconds(self, amount)
+
+## Adds the specified amount of seconds to the instance.
+## [br] Returns Graphite
+func addSeconds(amount: int) -> Graphite:
+	return GraphiteMath.addSeconds(self, amount)
+
+## Adds the specified amount of minutes to the instance.
+## [br] Returns Graphite
+func addMinutes(amount: int) -> Graphite:
+	return GraphiteMath.addMinutes(self, amount)
+
+## Adds the specified amount of hours to the instance.
+## [br] Returns Graphite
+func addHours(amount: int) -> Graphite:
+	return GraphiteMath.addHours(self, amount)
+
+## Adds the specified amount of days to the instance.
+## [br] Returns Graphite
+func addDays(amount: int) -> Graphite:
+	return GraphiteMath.addDays(self, amount)
+
+## Adds the specified amount of weeks to the instance.
+## [br] Returns Graphite
+func addWeeks(amount: int) -> Graphite:
+	return GraphiteMath.addWeeks(self, amount)
+
+## Adds the specified amount of weekdays (Monday-Friday) to the instance.
+## [br] Returns Graphite
+func addWeekdays(amount: int) -> Graphite:
+	return GraphiteMath.addWeekdays(self, amount)
+
+## Adds the specified amount of months to the instance.
+## [br] Returns Graphite
+func addMonths(amount: int) -> Graphite:
+	return GraphiteMath.addMonths(self, amount)
+
+## Adds the specified amount of quarters to the instance.
+## [br] Returns Graphite
+func addQuarters(amount: int) -> Graphite:
+	return GraphiteMath.addQuarters(self, amount)
+
+## Adds the specified amount of years to the instance.
+## [br] Returns Graphite
+func addYears(amount: int) -> Graphite:
+	return GraphiteMath.addYears(self, amount)
+
+## Adds the specified amount of decades to the instance.
+## [br] Returns Graphite
+func addDecades(amount: int) -> Graphite:
+	return GraphiteMath.addDecades(self, amount)
+
+## Adds the specified amount of centuries to the instance.
+## [br] Returns Graphite
+func addCenturies(amount: int) -> Graphite:
+	return GraphiteMath.addCenturies(self, amount)
+
+## Adds the specified amount of millenniums to the instance.
+## [br] Returns Graphite
+func addMillenniums(amount: int) -> Graphite:
+	return GraphiteMath.addMillenniums(self, amount)
+
+## Adds the specified amount of millennia to the instance.
+## [br] Returns Graphite
+func addMillennia(amount: int) -> Graphite:
+	return GraphiteMath.addMillennia(self, amount)
+
+### Addition Functions (Singular) ###
+
+## Adds one microsecond to the instance.
+## [br] Returns Graphite
+func addMicrosecond() -> Graphite:
+	return GraphiteMath.addMicrosecond(self)
+
+## Adds one millisecond to the instance.
+## [br] Returns Graphite
+func addMillisecond() -> Graphite:
+	return GraphiteMath.addMillisecond(self)
+
+## Adds one second to the instance.
+## [br] Returns Graphite
+func addSecond() -> Graphite:
+	return GraphiteMath.addSecond(self)
+
+## Adds one minute to the instance.
+## [br] Returns Graphite
+func addMinute() -> Graphite:
+	return GraphiteMath.addMinute(self)
+
+## Adds one hour to the instance.
+## [br] Returns Graphite
+func addHour() -> Graphite:
+	return GraphiteMath.addHour(self)
+
+## Adds one day to the instance.
+## [br] Returns Graphite
+func addDay() -> Graphite:
+	return GraphiteMath.addDay(self)
+
+## Adds one week to the instance.
+## [br] Returns Graphite
+func addWeek() -> Graphite:
+	return GraphiteMath.addWeek(self)
+
+## Adds one weekday (Monday-Friday) to the instance.
+## [br] Returns Graphite
+func addWeekday() -> Graphite:
+	return GraphiteMath.addWeekday(self)
+
+## Adds one month to the instance.
+## [br] Returns Graphite
+func addMonth() -> Graphite:
+	return GraphiteMath.addMonth(self)
+
+## Adds one quarter to the instance.
+## [br] Returns Graphite
+func addQuarter() -> Graphite:
+	return GraphiteMath.addQuarter(self)
+
+## Adds one year to the instance.
+## [br] Returns Graphite
+func addYear() -> Graphite:
+	return GraphiteMath.addYear(self)
+
+## Adds one decade to the instance.
+## [br] Returns Graphite
+func addDecade() -> Graphite:
+	return GraphiteMath.addDecade(self)
+
+## Adds one century to the instance.
+## [br] Returns Graphite
+func addCentury() -> Graphite:
+	return GraphiteMath.addCentury(self)
+
+## Adds one millennium to the instance.
+## [br] Returns Graphite
+func addMillennium() -> Graphite:
+	return GraphiteMath.addMillennium(self)
+
+### Subtraction Functions (Plural) ###
+
+## Subtracts the specified amount of microseconds from the instance.
+## [br] Returns Graphite
+func subMicroseconds(amount: int) -> Graphite:
+	return GraphiteMath.subMicroseconds(self, amount)
+
+## Subtracts the specified amount of milliseconds from the instance.
+## [br] Returns Graphite
+func subMilliseconds(amount: int) -> Graphite:
+	return GraphiteMath.subMilliseconds(self, amount)
+
+## Subtracts the specified amount of seconds from the instance.
+## [br] Returns Graphite
+func subSeconds(amount: int) -> Graphite:
+	return GraphiteMath.subSeconds(self, amount)
+
+## Subtracts the specified amount of minutes from the instance.
+## [br] Returns Graphite
+func subMinutes(amount: int) -> Graphite:
+	return GraphiteMath.subMinutes(self, amount)
+
+## Subtracts the specified amount of hours from the instance.
+## [br] Returns Graphite
+func subHours(amount: int) -> Graphite:
+	return GraphiteMath.subHours(self, amount)
+
+## Subtracts the specified amount of days from the instance.
+## [br] Returns Graphite
+func subDays(amount: int) -> Graphite:
+	return GraphiteMath.subDays(self, amount)
+
+## Subtracts the specified amount of weeks from the instance.
+## [br] Returns Graphite
+func subWeeks(amount: int) -> Graphite:
+	return GraphiteMath.subWeeks(self, amount)
+
+## Subtracts the specified amount of weekdays (Monday-Friday) from the instance.
+## [br] Returns Graphite
+func subWeekdays(amount: int) -> Graphite:
+	return GraphiteMath.subWeekdays(self, amount)
+
+## Subtracts the specified amount of months from the instance.
+## [br] Returns Graphite
+func subMonths(amount: int) -> Graphite:
+	return GraphiteMath.subMonths(self, amount)
+
+## Subtracts the specified amount of quarters from the instance.
+## [br] Returns Graphite
+func subQuarters(amount: int) -> Graphite:
+	return GraphiteMath.subQuarters(self, amount)
+
+## Subtracts the specified amount of years from the instance.
+## [br] Returns Graphite
+func subYears(amount: int) -> Graphite:
+	return GraphiteMath.subYears(self, amount)
+
+## Subtracts the specified amount of decades from the instance.
+## [br] Returns Graphite
+func subDecades(amount: int) -> Graphite:
+	return GraphiteMath.subDecades(self, amount)
+
+## Subtracts the specified amount of centuries from the instance.
+## [br] Returns Graphite
+func subCenturies(amount: int) -> Graphite:
+	return GraphiteMath.subCenturies(self, amount)
+
+## Subtracts the specified amount of millenniums from the instance.
+## [br] Returns Graphite
+func subMillenniums(amount: int) -> Graphite:
+	return GraphiteMath.subMillenniums(self, amount)
+
+## Subtracts the specified amount of millennia from the instance.
+## [br] Returns Graphite
+func subMillennia(amount: int) -> Graphite:
+	return GraphiteMath.subMillennia(self, amount)
+
+### Subtraction Functions (Singular) ###
+
+## Subtracts one microsecond from the instance.
+## [br] Returns Graphite
+func subMicrosecond() -> Graphite:
+	return GraphiteMath.subMicrosecond(self)
+
+## Subtracts one millisecond from the instance.
+## [br] Returns Graphite
+func subMillisecond() -> Graphite:
+	return GraphiteMath.subMillisecond(self)
+
+## Subtracts one second from the instance.
+## [br] Returns Graphite
+func subSecond() -> Graphite:
+	return GraphiteMath.subSecond(self)
+
+## Subtracts one minute from the instance.
+## [br] Returns Graphite
+func subMinute() -> Graphite:
+	return GraphiteMath.subMinute(self)
+
+## Subtracts one hour from the instance.
+## [br] Returns Graphite
+func subHour() -> Graphite:
+	return GraphiteMath.subHour(self)
+
+## Subtracts one day from the instance.
+## [br] Returns Graphite
+func subDay() -> Graphite:
+	return GraphiteMath.subDay(self)
+
+## Subtracts one week from the instance.
+## [br] Returns Graphite
+func subWeek() -> Graphite:
+	return GraphiteMath.subWeek(self)
+
+## Subtracts one weekday (Monday-Friday) from the instance.
+## [br] Returns Graphite
+func subWeekday() -> Graphite:
+	return GraphiteMath.subWeekday(self)
+
+## Subtracts one month from the instance.
+## [br] Returns Graphite
+func subMonth() -> Graphite:
+	return GraphiteMath.subMonth(self)
+
+## Subtracts one quarter from the instance.
+## [br] Returns Graphite
+func subQuarter() -> Graphite:
+	return GraphiteMath.subQuarter(self)
+
+## Subtracts one year from the instance.
+## [br] Returns Graphite
+func subYear() -> Graphite:
+	return GraphiteMath.subYear(self)
+
+## Subtracts one decade from the instance.
+## [br] Returns Graphite
+func subDecade() -> Graphite:
+	return GraphiteMath.subDecade(self)
+
+## Subtracts one century from the instance.
+## [br] Returns Graphite
+func subCentury() -> Graphite:
+	return GraphiteMath.subCentury(self)
+
+## Subtracts one millennium from the instance.
+## [br] Returns Graphite
+func subMillennium() -> Graphite:
+	return GraphiteMath.subMillennium(self)
+
 ### Creation ###
 
 ## Get a copy of the instance.

@@ -11,6 +11,8 @@ This document contains practical examples of using Graphite in real-world scenar
 - [Working with Periods](#working-with-periods)
 - [Practical Use Cases](#practical-use-cases)
 
+For comprehensive coverage of addition and subtraction operations, see [Addition and Subtraction](addition-subtraction.md).
+
 ## Basic Date Operations
 
 ### Creating and Displaying Dates
@@ -43,7 +45,7 @@ date.setTime(14, 30, 0)    # 2:30 PM
 print("Modified date: ", date.toDateTimeString())
 
 # Copy and modify
-var weekend = date.copy().add(2, "days")
+var weekend = date.copy().addDays(2)
 print("Weekend date: ", weekend.toDateTimeString())
 ```
 
@@ -138,11 +140,16 @@ print("Days until Christmas: ", days_left)
 
 ```gdscript
 func add_business_days(start_date: Graphite, business_days: int) -> Graphite:
+    # Use the built-in weekdays functionality
+    return start_date.copy().addWeekdays(business_days)
+
+# Alternative manual implementation for educational purposes
+func add_business_days_manual(start_date: Graphite, business_days: int) -> Graphite:
     var current = start_date.copy()
     var added_days = 0
     
     while added_days < business_days:
-        current.add(1, "days")
+        current = current.addDay()
         if current.isWeekday():
             added_days += 1
     
@@ -194,10 +201,10 @@ func is_holiday(date: Graphite) -> bool:
     return false
 
 func next_working_day(date: Graphite) -> Graphite:
-    var next_day = date.copy().add(1, "days")
+    var next_day = date.copy().addDay()
     
     while next_day.isWeekend() or is_holiday(next_day):
-        next_day.add(1, "days")
+        next_day = next_day.addDay()
     
     return next_day
 
@@ -236,7 +243,7 @@ func get_week_dates(date: Graphite) -> Array:
     var dates = []
     
     for i in range(7):
-        var day = week_start.copy().add(i, "days")
+        var day = week_start.copy().addDays(i)
         dates.append({
             "date": day.toDateString(),
             "day_name": day.format("l"),
@@ -293,7 +300,7 @@ func add_event(name: String, date: Graphite):
 
 func get_upcoming_events(days_ahead: int = 7) -> Array:
     var now = Graphite.now()
-    var cutoff = now.copy().add(days_ahead, "days")
+    var cutoff = now.copy().addDays(days_ahead)
     
     var upcoming = []
     for event in events:
@@ -313,8 +320,8 @@ func get_events_today() -> Array:
 
 # Usage
 var scheduler = EventScheduler.new()
-scheduler.add_event("Meeting", Graphite.now().add(2, "days").setTime(10, 0, 0))
-scheduler.add_event("Deadline", Graphite.now().add(5, "days").setTime(17, 0, 0))
+scheduler.add_event("Meeting", Graphite.now().addDays(2).setTime(10, 0, 0))
+scheduler.add_event("Deadline", Graphite.now().addDays(5).setTime(17, 0, 0))
 
 var upcoming = scheduler.get_upcoming_events()
 for event in upcoming:
@@ -390,7 +397,7 @@ func get_date_range(start_date: Graphite, end_date: Graphite) -> Array:
             "is_weekend": current.isWeekend(),
             "is_today": current.isToday()
         })
-        current.add(1, "days")
+        current = current.addDay()
     
     return dates
 
@@ -406,7 +413,7 @@ func get_business_days_in_range(start_date: Graphite, end_date: Graphite) -> Arr
 
 # Usage
 var start = Graphite.today()
-var end = start.copy().add(14, "days")
+var end = start.copy().addDays(14)
 var business_days = DateRangePicker.new().get_business_days_in_range(start, end)
 
 print("Business days in next 2 weeks:")
@@ -443,7 +450,7 @@ func check_overdue():
 
 func get_urgent_deadlines(hours_ahead: int = 24) -> Array:
     var urgent = []
-    var cutoff = Graphite.now().add(hours_ahead, "hours")
+    var cutoff = Graphite.now().addHours(hours_ahead)
     
     for deadline in deadlines:
         if deadline.due_date.lte(cutoff) and not deadline.is_overdue:
@@ -468,8 +475,8 @@ func get_deadline_status(deadline: Dictionary) -> String:
 
 # Usage
 var tracker = DeadlineTracker.new()
-tracker.add_deadline("Project Report", Graphite.now().add(2, "days"), DeadlineTracker.Priority.HIGH)
-tracker.add_deadline("Code Review", Graphite.now().add(6, "hours"), DeadlineTracker.Priority.MEDIUM)
+tracker.add_deadline("Project Report", Graphite.now().addDays(2), DeadlineTracker.Priority.HIGH)
+tracker.add_deadline("Code Review", Graphite.now().addHours(6), DeadlineTracker.Priority.MEDIUM)
 
 tracker.check_overdue()
 var urgent = tracker.get_urgent_deadlines()

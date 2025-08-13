@@ -14,6 +14,8 @@ Complete reference for all Graphite methods and properties.
 - [Accessor Methods](#accessor-methods)
 - [Constants](#constants)
 
+For comprehensive examples and detailed coverage of addition and subtraction operations, see [Addition and Subtraction](addition-subtraction.md).
+
 ## Static Creation Methods
 
 ### `Graphite.now(timezone_dict: Dictionary = {}) -> Graphite`
@@ -73,32 +75,144 @@ var yesterday = Graphite.yesterday()
 
 ## Math Operations
 
-### `add(amount: int, unit: String = "seconds") -> Graphite`
+### Generic Math Functions
+
+#### `add(amount: int, unit: String = "seconds") -> Graphite`
 Adds the specified amount of time to the Graphite instance.
 
 **Parameters:**
 - `amount`: The amount to add
-- `unit`: Unit of measurement ("seconds", "minutes", "hours", "days")
+- `unit`: Unit of measurement (see supported units below)
 
 **Returns:** Modified `Graphite` instance (chainable)
+
+**Supported units:** `"microseconds"`, `"milliseconds"`, `"seconds"`, `"minutes"`, `"hours"`, `"days"`, `"weeks"`, `"weekdays"`, `"months"`, `"quarters"`, `"years"`, `"decades"`, `"centuries"`, `"millenniums"`, `"millennia"`
 
 **Example:**
 ```gdscript
 var future = Graphite.now().add(5, "minutes").add(2, "hours")
+var business_days = Graphite.now().add(5, "weekdays")  # Skips weekends
 ```
 
-### `sub(amount: int, unit: String = "seconds") -> Graphite`
+#### `sub(amount: int, unit: String = "seconds") -> Graphite`
 Subtracts the specified amount of time from the Graphite instance.
 
 **Parameters:**
 - `amount`: The amount to subtract
-- `unit`: Unit of measurement ("seconds", "minutes", "hours", "days")
+- `unit`: Unit of measurement (same supported units as `add()`)
 
 **Returns:** Modified `Graphite` instance (chainable)
 
 **Example:**
 ```gdscript
 var past = Graphite.now().sub(30, "minutes").sub(1, "days")
+var business_past = Graphite.now().sub(3, "weekdays")
+```
+
+### Addition Functions (Plural)
+
+#### Time Units
+- `addMicroseconds(amount: int) -> Graphite` - Add microseconds
+- `addMilliseconds(amount: int) -> Graphite` - Add milliseconds  
+- `addSeconds(amount: int) -> Graphite` - Add seconds
+- `addMinutes(amount: int) -> Graphite` - Add minutes
+- `addHours(amount: int) -> Graphite` - Add hours
+
+#### Date Units
+- `addDays(amount: int) -> Graphite` - Add days
+- `addWeeks(amount: int) -> Graphite` - Add weeks
+- `addWeekdays(amount: int) -> Graphite` - Add weekdays (Monday-Friday only)
+- `addMonths(amount: int) -> Graphite` - Add months
+- `addQuarters(amount: int) -> Graphite` - Add quarters
+- `addYears(amount: int) -> Graphite` - Add years
+
+#### Large Time Units
+- `addDecades(amount: int) -> Graphite` - Add decades
+- `addCenturies(amount: int) -> Graphite` - Add centuries
+- `addMillenniums(amount: int) -> Graphite` - Add millenniums
+- `addMillennia(amount: int) -> Graphite` - Add millennia (alternative spelling)
+
+### Addition Functions (Singular)
+
+#### Time Units
+- `addMicrosecond() -> Graphite` - Add 1 microsecond
+- `addMillisecond() -> Graphite` - Add 1 millisecond
+- `addSecond() -> Graphite` - Add 1 second
+- `addMinute() -> Graphite` - Add 1 minute
+- `addHour() -> Graphite` - Add 1 hour
+
+#### Date Units
+- `addDay() -> Graphite` - Add 1 day
+- `addWeek() -> Graphite` - Add 1 week
+- `addWeekday() -> Graphite` - Add 1 weekday (Monday-Friday only)
+- `addMonth() -> Graphite` - Add 1 month
+- `addQuarter() -> Graphite` - Add 1 quarter
+- `addYear() -> Graphite` - Add 1 year
+
+#### Large Time Units
+- `addDecade() -> Graphite` - Add 1 decade
+- `addCentury() -> Graphite` - Add 1 century  
+- `addMillennium() -> Graphite` - Add 1 millennium
+
+### Subtraction Functions (Plural)
+
+#### Time Units
+- `subMicroseconds(amount: int) -> Graphite` - Subtract microseconds
+- `subMilliseconds(amount: int) -> Graphite` - Subtract milliseconds
+- `subSeconds(amount: int) -> Graphite` - Subtract seconds
+- `subMinutes(amount: int) -> Graphite` - Subtract minutes
+- `subHours(amount: int) -> Graphite` - Subtract hours
+
+#### Date Units
+- `subDays(amount: int) -> Graphite` - Subtract days
+- `subWeeks(amount: int) -> Graphite` - Subtract weeks
+- `subWeekdays(amount: int) -> Graphite` - Subtract weekdays (Monday-Friday only)
+- `subMonths(amount: int) -> Graphite` - Subtract months
+- `subQuarters(amount: int) -> Graphite` - Subtract quarters
+- `subYears(amount: int) -> Graphite` - Subtract years
+
+#### Large Time Units
+- `subDecades(amount: int) -> Graphite` - Subtract decades
+- `subCenturies(amount: int) -> Graphite` - Subtract centuries
+- `subMillenniums(amount: int) -> Graphite` - Subtract millenniums
+- `subMillennia(amount: int) -> Graphite` - Subtract millennia (alternative spelling)
+
+### Subtraction Functions (Singular)
+
+#### Time Units
+- `subMicrosecond() -> Graphite` - Subtract 1 microsecond
+- `subMillisecond() -> Graphite` - Subtract 1 millisecond
+- `subSecond() -> Graphite` - Subtract 1 second
+- `subMinute() -> Graphite` - Subtract 1 minute
+- `subHour() -> Graphite` - Subtract 1 hour
+
+#### Date Units
+- `subDay() -> Graphite` - Subtract 1 day
+- `subWeek() -> Graphite` - Subtract 1 week
+- `subWeekday() -> Graphite` - Subtract 1 weekday (Monday-Friday only)
+- `subMonth() -> Graphite` - Subtract 1 month
+- `subQuarter() -> Graphite` - Subtract 1 quarter
+- `subYear() -> Graphite` - Subtract 1 year
+
+#### Large Time Units
+- `subDecade() -> Graphite` - Subtract 1 decade
+- `subCentury() -> Graphite` - Subtract 1 century
+- `subMillennium() -> Graphite` - Subtract 1 millennium
+
+### Weekdays Functionality
+
+The `addWeekdays()`, `addWeekday()`, `subWeekdays()`, and `subWeekday()` functions only consider Monday through Friday as valid weekdays, automatically skipping weekends.
+
+**Example:**
+```gdscript
+# If today is Thursday and you add 5 weekdays:
+var thursday = Graphite.today()  # Assuming today is Thursday
+var result = thursday.addWeekdays(5)
+# Result: Thursday of next week (Thu->Fri->Mon->Tue->Wed->Thu)
+
+# Business day calculations
+var project_start = Graphite.today()
+var phase1_deadline = project_start.addWeekdays(10)  # 10 business days later
 ```
 
 ## Manipulation Methods

@@ -6,6 +6,7 @@ Graphite is a powerful DateTime manipulation library for Godot 4.4, inspired by 
 
 - [Getting Started](getting-started.md)
 - [API Reference](api-reference.md)
+- [Addition and Subtraction](addition-subtraction.md)
 - [Examples](examples.md)
 - [Architecture](architecture.md)
 
@@ -22,8 +23,8 @@ var birthday = Graphite.today().setDate(1990, 5, 15)
 print(now.toDateTimeString())  # 2025-08-09 14:30:25
 
 # Add/subtract time
-var tomorrow = now.add(1, "days")
-var lastWeek = now.sub(7, "days")
+var tomorrow = now.addDay()
+var lastWeek = now.subWeeks(1)
 
 # Query dates
 if now.isWeekend():
@@ -32,7 +33,7 @@ if now.isWeekend():
 # Chain operations
 var result = Graphite.now()
     .startOfDay()
-    .add(5, "hours")
+    .addHours(5)
     .format("Y-m-d H:i:s")
 ```
 

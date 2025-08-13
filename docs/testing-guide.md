@@ -10,7 +10,7 @@ The test suite is organized into several files, each focusing on specific aspect
 
 1. **`graphite_test.gd`** - Main Graphite class functionality
    - Static creation methods (`now()`, `today()`, `tomorrow()`, `yesterday()`)
-   - Basic math operations (`add()`, `sub()`)
+   - Basic math operations (`add()`, `sub()`, `addDays()`, `subWeeks()`, etc.)
    - Copy/clone operations
    - Method chaining
    - Query methods
@@ -262,7 +262,7 @@ func test_performance_benchmark():
     
     # Perform many operations
     for i in range(10000):
-        var date = Graphite.now().add(i, "days").format("Y-m-d")
+        var date = Graphite.now().addDays(i).format("Y-m-d")
     
     var end_time = Time.get_time_from_system()
     var duration = end_time - start_time

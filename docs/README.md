@@ -15,13 +15,22 @@ Welcome to the complete documentation for Graphite - a powerful DateTime manipul
 ### 📖 [API Reference](api-reference.md)
 **Complete method and property documentation**
 - Static creation methods (`now()`, `today()`, `from_dict()`)
-- Math operations (`add()`, `sub()`)
+- Math operations (`add()`, `sub()`, `addDays()`, `subWeeks()`, etc.)
 - Manipulation methods (`setTime()`, `setDate()`, `copy()`)
 - Formatting methods (`format()`, `toDateTimeString()`, etc.)
 - Modifier methods (`startOfDay()`, `endOfMonth()`, etc.)
 - Query methods (`isWeekend()`, `isLeapYear()`, etc.)
 - Comparison methods (`eq()`, `gt()`, `isBefore()`, etc.)
 - Constants and enums
+
+### ➕➖ [Addition and Subtraction](addition-subtraction.md)
+**Comprehensive guide to time math operations**
+- Generic functions (`add()`, `sub()`)
+- Specialized functions (`addDays()`, `subWeeks()`, etc.)
+- Weekdays functionality (business days)
+- Plural and singular forms
+- Performance considerations
+- Practical examples
 
 ### 💡 [Examples](examples.md)
 **Practical, real-world usage scenarios**
@@ -67,7 +76,7 @@ Welcome to the complete documentation for Graphite - a powerful DateTime manipul
 → [Query Methods](api-reference.md#query-methods) & [Validation Examples](examples.md#validation-and-queries)
 
 **Add or subtract time**
-→ [Math Operations](api-reference.md#math-operations) & [Date Calculations](examples.md#date-calculations)
+→ [Addition and Subtraction](addition-subtraction.md) & [Math Operations](api-reference.md#math-operations) & [Date Calculations](examples.md#date-calculations)
 
 **Work with periods (start/end of month, etc.)**
 → [Modifier Methods](api-reference.md#modifier-methods) & [Working with Periods](examples.md#working-with-periods)
@@ -88,8 +97,10 @@ Graphite.from_dict(dict, {}) # From custom date
 .format("Y-m-d H:i:s")      # Custom format
 
 # Math
-.add(5, "minutes")          # Add time
-.sub(2, "hours")            # Subtract time
+.add(5, "minutes")          # Add time (generic)
+.addDays(3)                 # Add 3 days
+.addWeekdays(5)             # Add 5 business days
+.subHours(2)                # Subtract 2 hours
 
 # Queries
 .isToday()                  # Is today?
